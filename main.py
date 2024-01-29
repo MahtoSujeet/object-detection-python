@@ -28,7 +28,7 @@ while True:
     classes, scores, boxes = model.detect(frame, Conf_threshold, NMS_threshold)
     for (classid, score, box) in zip(classes, scores, boxes):
         color = COLORS[int(classid) % len(COLORS)]
-        label = "%s : %f" % (class_name[classid[0]], score)
+        label = "%s : %f" % (class_name[classid], score)
         cv.rectangle(frame, box, color, 1)
         cv.putText(frame, label, (box[0], box[1]-10),
                    cv.FONT_HERSHEY_COMPLEX, 1.5, color, 1)
